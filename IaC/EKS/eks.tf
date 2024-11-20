@@ -21,7 +21,7 @@ module "eks" {
   cluster_version = var.cluster_version
 
   cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access  = false
 
   cluster_addons = {
     aws-ebs-csi-driver = {
