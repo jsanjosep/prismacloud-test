@@ -91,6 +91,14 @@ module "eks" {
     }
   ]
 
+  aws_auth_roles = [
+    {
+      rolearn = "arn:aws:iam:528757793796:role/AWS_528757793796_Admin"
+      username = "AWS_528757793796_Admin"
+      groups   = [local.k8s_demo_user_group_name]
+    }
+  ]
+
   cluster_tags = var.eks_tags
 }
 

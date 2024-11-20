@@ -16,11 +16,13 @@ variable "region" {
 variable "trusted_networks" {
   type        = list(any)
   description = "List of strings containing trusted CIDRs"
+  default = ["10.0.0.0/16", "163.116.243.53/32", "172.29.0.0/24"]
 }
 
 variable "demo_user_username" {
   type        = string
   description = "Username for the demo user to to grant access to ECR"
+  default = "jsanjose-cli-github-actions"
 }
 
 variable "eks_tags" {
@@ -34,6 +36,7 @@ variable "gh_token" {
 
 variable "gh_repo" {
   type = string
+  default = "prismacloud-test"
 }
 
 variable "run_provisioner" {
@@ -68,9 +71,10 @@ variable "pcc_console" {
 
 variable "s3_bucket_name" {
   type = string
+  default = "jsanjose-prisma-cloud-test-bucket-1"
 }
 
 variable "cluster_version" {
   type    = string
-  default = "1.23"
+  default = "1.25"
 }
