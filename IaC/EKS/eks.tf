@@ -36,11 +36,11 @@ module "eks" {
   eks_managed_node_groups = {
     one = {
       min_size     = 1
-      max_size     = 4
-      desired_size = 2
+      max_size     = 1
+      desired_size = 1
 
       instance_types = ["t3.medium"]
-      capacity_type  = "SPOT"
+      capacity_type  = "ON_DEMAND"
 
       iam_role_additional_policies = ["arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"]
     }
