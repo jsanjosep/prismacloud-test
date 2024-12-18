@@ -32,19 +32,19 @@ jobs:
       with:
         cluster_name: ${{ secrets.GKE_CLUSTER }}
         location: ${{ secrets.GKE_ZONE }}
-    # - name: Run Bridgecrew 
-    #   id: Bridgecrew
-    #   uses: bridgecrewio/bridgecrew-action@master 
-    #   env:
-    #     PRISMA_API_URL: https://api2.prismacloud.io
-    #   with:
-    #     api-key: ${{ secrets.BC_API_KEY }}
-    #     soft_fail: false
-    # - name: Expose report
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: SARIF results
-    #     path: results.sarif 
+    - name: Run Bridgecrew 
+      id: Bridgecrew
+      uses: bridgecrewio/bridgecrew-action@master 
+      env:
+        PRISMA_API_URL: https://api.eu.prismacloud.io
+      with:
+        api-key: ${{ secrets.BC_API_KEY }}
+        soft_fail: false
+    - name: Expose report
+      uses: actions/upload-artifact@v2
+      with:
+        name: SARIF results
+        path: results.sarif 
       # Build the Docker image
     - name: Build
       run: |-
